@@ -1,0 +1,335 @@
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+    color: #2d3436;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Шапка */
+.header {
+    background: #1e3799;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Баллы */
+.score {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(3px);
+}
+
+.score i {
+    color: #ffd32a;
+}
+
+/* Вкладки */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    color: #666;
+    position: relative;
+}
+
+.tab-button.active {
+    color: #1e3799;
+    font-weight: 500;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #ff4757;
+}
+
+/* Основной контент */
+.tab-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Карточки уроков */
+.lesson-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.lesson-card h2 {
+    margin-bottom: 1.5rem;
+    color: #1e3799;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Сетки */
+.grid-container {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.alphabet { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); }
+.numbers { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+.phrases-container { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.colors-container { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.family-container { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+
+/* Элементы уроков */
+.letter, .number {
+    background: #1e3799;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+}
+
+.letter:hover, .number:hover {
+    transform: translateY(-2px);
+    background: #0c2461;
+}
+
+.phrase-item, .color-item, .family-item {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.phrase-item:hover, .color-item:hover, .family-item:hover {
+    transform: translateY(-3px);
+}
+
+.color-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.audio-btn {
+    background: none;
+    border: none;
+    color: #1e3799;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* Упражнения */
+.exercise-card {
+    background: white;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.play-btn {
+    background: #2ed573;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+}
+
+.answer-input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.check-btn {
+    background: #1e3799;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.check-btn:hover {
+    background: #0c2461;
+}
+
+/* Прогресс */
+.progress-wrapper {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+
+.progress-bar {
+    height: 20px;
+    background: #f1f2f6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ed573, #1e90ff);
+    transition: width 0.5s ease;
+}
+
+/* Достижения */
+.achievements-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin-top: 2rem;
+}
+
+.achievement {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.achievement.unlocked {
+    opacity: 1;
+    border-left: 4px solid #2ed573;
+}
+
+.achievement-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-button {
+        flex: 1 1 auto;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .lesson-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .score {
+        position: static;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
+    .header {
+        padding: 1.5rem 1rem;
+    }
+}

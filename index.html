@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Russian</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Learn Russian</h1>
+        <p>Изучайте русский язык легко!</p>
+        <div class="score">
+            <i class="fas fa-coins"></i>
+            <span id="points">0</span> баллов
+        </div>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-button active" data-tab="lessons">Уроки</button>
+        <button class="tab-button" data-tab="exercises">Упражнения</button>
+        <button class="tab-button" data-tab="progress">Прогресс</button>
+    </nav>
+
+    <div id="lessons" class="tab-content active">
+        <!-- Алфавит -->
+        <div class="lesson-card">
+            <h2><i class="fas fa-book-open"></i> Алфавит</h2>
+            <div class="grid-container alphabet">
+                <button class="letter" data-audio="audio/alphabet/а.mp3">А</button>
+                <button class="letter" data-audio="audio/alphabet/б.mp3">Б</button>
+                <button class="letter" data-audio="audio/alphabet/в.mp3">В</button>
+                <button class="letter" data-audio="audio/alphabet/г.mp3">Г</button>
+                <button class="letter" data-audio="audio/alphabet/д.mp3">Д</button>
+                <button class="letter" data-audio="audio/alphabet/е.mp3">Е</button>
+                <button class="letter" data-audio="audio/alphabet/ё.mp3">Ё</button>
+                <button class="letter" data-audio="audio/alphabet/ж.mp3">Ж</button>
+                <button class="letter" data-audio="audio/alphabet/з.mp3">З</button>
+                <button class="letter" data-audio="audio/alphabet/и.mp3">И</button>
+                <button class="letter" data-audio="audio/alphabet/й.mp3">Й</button>
+                <button class="letter" data-audio="audio/alphabet/к.mp3">К</button>
+                <button class="letter" data-audio="audio/alphabet/л.mp3">Л</button>
+                <button class="letter" data-audio="audio/alphabet/м.mp3">М</button>
+                <button class="letter" data-audio="audio/alphabet/н.mp3">Н</button>
+                <button class="letter" data-audio="audio/alphabet/о.mp3">О</button>
+                <button class="letter" data-audio="audio/alphabet/п.mp3">П</button>
+                <button class="letter" data-audio="audio/alphabet/р.mp3">Р</button>
+                <button class="letter" data-audio="audio/alphabet/с.mp3">С</button>
+                <button class="letter" data-audio="audio/alphabet/т.mp3">Т</button>
+                <button class="letter" data-audio="audio/alphabet/у.mp3">У</button>
+                <button class="letter" data-audio="audio/alphabet/ф.mp3">Ф</button>
+                <button class="letter" data-audio="audio/alphabet/х.mp3">Х</button>
+                <button class="letter" data-audio="audio/alphabet/ц.mp3">Ц</button>
+                <button class="letter" data-audio="audio/alphabet/ч.mp3">Ч</button>
+                <button class="letter" data-audio="audio/alphabet/ш.mp3">Ш</button>
+                <button class="letter" data-audio="audio/alphabet/щ.mp3">Щ</button>
+                <button class="letter" data-audio="audio/alphabet/ъ.mp3">Ъ</button>
+                <button class="letter" data-audio="audio/alphabet/ы.mp3">Ы</button>
+                <button class="letter" data-audio="audio/alphabet/ь.mp3">Ь</button>
+                <button class="letter" data-audio="audio/alphabet/э.mp3">Э</button>
+                <button class="letter" data-audio="audio/alphabet/ю.mp3">Ю</button>
+                <button class="letter" data-audio="audio/alphabet/я.mp3">Я</button>
+            </div>
+        </div>
+
+        <!-- Приветствия -->
+        <div class="lesson-card">
+            <h2><i class="fas fa-handshake"></i> Приветствия</h2>
+            <div class="phrases-container">
+                <div class="phrase-item" data-audio="audio/greetings/здравствуйте.mp3">
+                    <span>Здравствуйте</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="phrase-item" data-audio="audio/greetings/привет.mp3">
+                    <span>Привет</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="phrase-item" data-audio="audio/greetings/доброе_утро.mp3">
+                    <span>Доброе утро</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="phrase-item" data-audio="audio/greetings/добрый_день.mp3">
+                    <span>Добрый день</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="phrase-item" data-audio="audio/greetings/добрый_вечер.mp3">
+                    <span>Добрый вечер</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="phrase-item" data-audio="audio/greetings/как_дела.mp3">
+                    <span>Как дела?</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="phrase-item" data-audio="audio/greetings/спасибо_хорошо.mp3">
+                    <span>Спасибо, хорошо</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="phrase-item" data-audio="audio/greetings/до_свидания.mp3">
+                    <span>До свидания</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Цифры -->
+        <div class="lesson-card">
+            <h2><i class="fas fa-sort-numeric-up"></i> Цифры</h2>
+            <div class="grid-container numbers">
+                <button class="number" data-audio="audio/numbers/1.mp3">1 - Один</button>
+                <button class="number" data-audio="audio/numbers/2.mp3">2 - Два</button>
+                <button class="number" data-audio="audio/numbers/3.mp3">3 - Три</button>
+                <button class="number" data-audio="audio/numbers/4.mp3">4 - Четыре</button>
+                <button class="number" data-audio="audio/numbers/5.mp3">5 - Пять</button>
+                <button class="number" data-audio="audio/numbers/6.mp3">6 - Шесть</button>
+                <button class="number" data-audio="audio/numbers/7.mp3">7 - Семь</button>
+                <button class="number" data-audio="audio/numbers/8.mp3">8 - Восемь</button>
+                <button class="number" data-audio="audio/numbers/9.mp3">9 - Девять</button>
+                <button class="number" data-audio="audio/numbers/10.mp3">10 - Десять</button>
+                <button class="number" data-audio="audio/numbers/11.mp3">11 - Одиннадцать</button>
+                <button class="number" data-audio="audio/numbers/12.mp3">12 - Двенадцать</button>
+                <button class="number" data-audio="audio/numbers/13.mp3">13 - Тринадцать</button>
+                <button class="number" data-audio="audio/numbers/14.mp3">14 - Четырнадцать</button>
+                <button class="number" data-audio="audio/numbers/15.mp3">15 - Пятнадцать</button>
+                <button class="number" data-audio="audio/numbers/16.mp3">16 - Шестнадцать</button>
+                <button class="number" data-audio="audio/numbers/17.mp3">17 - Семнадцать</button>
+                <button class="number" data-audio="audio/numbers/18.mp3">18 - Восемнадцать</button>
+                <button class="number" data-audio="audio/numbers/19.mp3">19 - Девятнадцать</button>
+                <button class="number" data-audio="audio/numbers/20.mp3">20 - Двадцать</button>
+            </div>
+        </div>
+
+        <!-- Цвета -->
+        <div class="lesson-card">
+            <h2><i class="fas fa-palette"></i> Цвета</h2>
+            <div class="colors-container">
+                <div class="color-item" data-audio="audio/colors/красный.mp3">
+                    <div class="color-box" style="background: #FF0000"></div>
+                    <span>Красный</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/синий.mp3">
+                    <div class="color-box" style="background: #0000FF"></div>
+                    <span>Синий</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/зеленый.mp3">
+                    <div class="color-box" style="background: #00FF00"></div>
+                    <span>Зеленый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/желтый.mp3">
+                    <div class="color-box" style="background: #FFFF00"></div>
+                    <span>Желтый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/черный.mp3">
+                    <div class="color-box" style="background: #000000"></div>
+                    <span>Черный</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/белый.mp3">
+                    <div class="color-box" style="background: #FFFFFF"></div>
+                    <span>Белый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/оранжевый.mp3">
+                    <div class="color-box" style="background: #FFA500"></div>
+                    <span>Оранжевый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/фиолетовый.mp3">
+                    <div class="color-box" style="background: #800080"></div>
+                    <span>Фиолетовый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/розовый.mp3">
+                    <div class="color-box" style="background: #FFC0CB"></div>
+                    <span>Розовый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/серый.mp3">
+                    <div class="color-box" style="background: #808080"></div>
+                    <span>Серый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="color-item" data-audio="audio/colors/коричневый.mp3">
+                    <div class="color-box" style="background: #423021fd"></div>
+                    <span>Коричневый</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Семья -->
+        <div class="lesson-card">
+            <h2><i class="fas fa-users"></i> Семья</h2>
+            <div class="family-container">
+                <div class="family-item" data-audio="audio/family/мама.mp3">
+                    <i class="fas fa-female"></i>
+                    <span>Мама</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/папа.mp3">
+                    <i class="fas fa-male"></i>
+                    <span>Папа</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/брат.mp3">
+                    <i class="fas fa-child"></i>
+                    <span>Брат</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/сестра.mp3">
+                    <i class="fas fa-child"></i>
+                    <span>Сестра</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/дедушка.mp3">
+                    <i class="fas fa-blind"></i>
+                    <span>Дедушка</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/бабушка.mp3">
+                    <i class="fas fa-blind"></i>
+                    <span>Бабушка</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/дядя.mp3">
+                    <i class="fas fa-user"></i>
+                    <span>Дядя</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/тетя.mp3">
+                    <i class="fas fa-user"></i>
+                    <span>Тётя</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/сын.mp3">
+                    <i class="fas fa-baby"></i>
+                    <span>Сын</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/дочь.mp3">
+                    <i class="fas fa-baby"></i>
+                    <span>Дочь</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/внук.mp3">
+                    <i class="fas fa-child"></i>
+                    <span>Внук</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="family-item" data-audio="audio/family/внучка.mp3">
+                    <i class="fas fa-child"></i>
+                    <span>Внучка</span>
+                    <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="exercises" class="tab-content">
+        <!-- Алфавит -->
+        <div class="exercise-card" data-type="alphabet" data-correct="ы">
+            <h3>Упражнение 1: Что за буква?</h3>
+            <button class="play-btn" data-audio="audio/exercises/alphabet_ex1.mp3">
+                <i class="fas fa-play"></i> Проиграть
+            </button>
+            <input type="text" class="answer-input" placeholder="Введите букву">
+            <button class="check-btn">Проверить</button>
+            <p class="exercise-result"></p>
+        </div>
+        
+        <div class="exercise-card" data-type="alphabet" data-correct="щ"
+            ><h3>Упражнение 2: Что за буква?</h3>
+            <button class="play-btn" data-audio="audio/exercises/alphabet_ex2.mp3">
+                <i class="fas fa-play"></i> Проиграть
+            </button>
+            <input type="text" class="answer-input" placeholder="Введите букву">
+            <button class="check-btn">Проверить</button>
+            <p class="exercise-result"></p>
+        </div>
+
+        <!-- Приветствия -->
+        <div class="exercise-card" data-type="greetings" data-correct="добрый вечер">
+            <h3>Упражнение 3: Приветствия</h3>
+            <button class="play-btn" data-audio="audio/exercises/greetings_ex1.mp3">
+                <i class="fas fa-play"></i> Проиграть
+            </button>
+            <input type="text" class="answer-input" placeholder="Введите фразу">
+            <button class="check-btn">Проверить</button>
+            <p class="exercise-result"></p>
+        </div>
+    
+        <div class="exercise-card" data-type="greetings" data-correct="как дела?">
+            <h3>Упражнение 4: Вопрос</h3>
+            <button class="play-btn" data-audio="audio/exercises/greetings_ex2.mp3">
+                <i class="fas fa-play"></i> Проиграть
+            </button>
+            <input type="text" class="answer-input" placeholder="Введите ответ">
+            <button class="check-btn">Проверить</button>
+            <p class="exercise-result"></p>
+        </div>
+
+        
+    </div>
+
+    <div id="progress" class="tab-content">
+        <div class="progress-wrapper">
+            <h3>Ваш прогресс:</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <span class="progress-percent">0%</span>
+        </div>
+        
+        <div class="achievements-container">
+            <div class="achievement locked">
+                <i class="fas fa-trophy"></i>
+                <p>Новичок</p>
+                <span>Заработайте 50 баллов</span>
+            </div>
+            <div class="achievement locked">
+                <i class="fas fa-award"></i>
+                <p>Знаток алфавита</p>
+                <span>Выучите все буквы</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
