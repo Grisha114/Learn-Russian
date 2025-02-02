@@ -11,9 +11,9 @@ let achievements = JSON.parse(localStorage.getItem('achievements')) || [];
 
 // Конфигурация достижений
 const achievementList = [
-    {
-        id: 1,
-        name: "Новичок",
+    { 
+        id: 1, 
+        name: "Новичок", 
         description: "Заработайте 50 баллов",
         condition: (p) => p >= 50,
         icon: "🥇"
@@ -43,14 +43,14 @@ function initAudioPlayers() {
         button.addEventListener('click', (e) => {
             const audioUrl = e.currentTarget.dataset.audio;
             playAudio(audioUrl);
-
+            
             // Определяем категорию
             const card = e.currentTarget.closest('.lesson-card');
             const category = card ? card.querySelector('h2').textContent.toLowerCase().replace(/\s/g, '_') : 'other';
-
+            
             // Создаем уникальный ID для элемента
             const itemId = e.currentTarget.textContent.trim() || audioUrl.split('/').pop();
-
+            
             if (!progressData[category][itemId]) {
                 points += 1;
                 progressData[category][itemId] = true;
@@ -88,7 +88,7 @@ function initExercises() {
                 result.textContent = '❌ Неправильно. Попробуйте ещё!';
                 result.style.color = '#d52b1e';
             }
-
+            
             updatePoints();
             checkAchievements();
         });
@@ -100,11 +100,11 @@ function initTabs() {
     document.querySelectorAll('.tab-button').forEach(button => {
         button.addEventListener('click', () => {
             const tabId = button.dataset.tab;
-
+            
             document.querySelectorAll('.tab-content, .tab-button').forEach(el => {
                 el.classList.remove('active');
             });
-
+            
             document.getElementById(tabId).classList.add('active');
             button.classList.add('active');
         });
@@ -122,10 +122,10 @@ function updateProgress() {
     const totalItems = Object.values(progressData).reduce((acc, category) => {
         return acc + Object.keys(category).length;
     }, 0);
-
+    
     const progressPercent = Math.min(Math.floor((totalItems / 106) * 100), 100);
     const progressBar = document.querySelector('.progress-fill');
-
+    
     progressBar.style.width = `${progressPercent}%`;
     document.querySelector('.progress-percent').textContent = `${progressPercent}%`;
     localStorage.setItem('progress', JSON.stringify(progressData));
@@ -158,7 +158,7 @@ function showAchievementNotification(achievement) {
             <small>${achievement.description}</small>
         </div>
     `;
-
+    
     document.body.appendChild(notification);
     setTimeout(() => notification.remove(), 5000);
 }
@@ -194,17 +194,17 @@ function initTabs() {
     document.querySelectorAll('.tab-button').forEach(button => {
         button.addEventListener('click', (e) => {
             const tabId = e.target.dataset.tab;
-
+            
             // Скрываем все вкладки
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.style.display = 'none';
             });
-
+            
             // Убираем активность у всех кнопок
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active');
             });
-
+            
             // Показываем выбранную вкладку
             const activeTab = document.getElementById(tabId);
             if (activeTab) {
