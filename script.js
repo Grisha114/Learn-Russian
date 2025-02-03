@@ -71,7 +71,15 @@ const translations = {
     usernamePlaceholder: "Логин",
     passwordPlaceholder: "Пароль",
     selectLanguage: "Выберите язык:",
-    introInfo: "Наш сайт создан для иностранцев, стремящихся изучить русский язык. Здесь вы найдете увлекательные уроки, упражнения и аудиоматериалы, которые помогут вам быстро освоить язык."
+    introInfo: "Наш сайт создан для иностранцев, стремящихся изучить русский язык. Здесь вы найдете увлекательные уроки, упражнения и аудиоматериалы, которые помогут вам быстро освоить язык.",
+    lessonWeather: "Погода",
+    weatherInfo: "Изучите названия погодных явлений и фраз, связанных с погодой.",
+    lessonFood: "Еда",
+    foodInfo: "Узнайте названия популярных блюд, фруктов, овощей и напитков.",
+    lessonTravel: "Путешествия",
+    travelInfo: "Научитесь говорить о путешествиях: как добраться, где остановиться и что посетить.",
+    lessonAnimals: "Животные",
+    animalsInfo: "Изучите названия животных и фразы, связанные с домашними и дикими животными."
   },
   en: {
     headerTitle: "Learn Russian for Foreigners",
@@ -109,7 +117,15 @@ const translations = {
     usernamePlaceholder: "Username",
     passwordPlaceholder: "Password",
     selectLanguage: "Select Language:",
-    introInfo: "Our site is designed for foreigners who want to learn Russian. Here you'll find engaging lessons, exercises, and audio materials to help you master the language quickly."
+    introInfo: "Our site is designed for foreigners who want to learn Russian. Here you'll find engaging lessons, exercises, and audio materials to help you master the language quickly.",
+    lessonWeather: "Weather",
+    weatherInfo: "Learn the names of weather phenomena and phrases related to the weather.",
+    lessonFood: "Food",
+    foodInfo: "Discover the names of popular dishes, fruits, vegetables, and drinks.",
+    lessonTravel: "Travel",
+    travelInfo: "Learn to talk about travel: how to get there, where to stay, and what to visit.",
+    lessonAnimals: "Animals",
+    animalsInfo: "Learn the names of animals and phrases related to pets and wild animals."
   },
   es: {
     headerTitle: "Aprende Ruso para Extranjeros",
@@ -147,7 +163,15 @@ const translations = {
     usernamePlaceholder: "Usuario",
     passwordPlaceholder: "Contraseña",
     selectLanguage: "Seleccione el idioma:",
-    introInfo: "Nuestro sitio está diseñado para extranjeros que desean aprender ruso. Aquí encontrarás lecciones, ejercicios y material de audio que te ayudarán a dominar el idioma rápidamente."
+    introInfo: "Nuestro sitio está diseñado para extranjeros que desean aprender ruso. Aquí encontrarás lecciones, ejercicios y material de audio que te ayudarán a dominar el idioma rápidamente.",
+    lessonWeather: "Tiempo",
+    weatherInfo: "Aprende los nombres de los fenómenos meteorológicos y las frases relacionadas con el tiempo.",
+    lessonFood: "Comida",
+    foodInfo: "Descubre los nombres de platos populares, frutas, verduras y bebidas.",
+    lessonTravel: "Viajes",
+    travelInfo: "Aprende a hablar sobre viajes: cómo llegar, dónde hospedarse y qué visitar.",
+    lessonAnimals: "Animales",
+    animalsInfo: "Aprende los nombres de los animales y frases relacionadas con mascotas y animales salvajes."
   },
   fr: {
     headerTitle: "Apprenez le Russe pour Étrangers",
@@ -185,7 +209,15 @@ const translations = {
     usernamePlaceholder: "Nom d'utilisateur",
     passwordPlaceholder: "Mot de passe",
     selectLanguage: "Sélectionnez la langue:",
-    introInfo: "Notre site est conçu pour les étrangers désireux d'apprendre le russe. Vous y trouverez des leçons captivantes, des exercices et du matériel audio pour maîtriser rapidement la langue."
+    introInfo: "Notre site est conçu pour les étrangers désireux d'apprendre le russe. Vous y trouverez des leçons captivantes, des exercices et du matériel audio pour maîtriser rapidement la langue.",
+    lessonWeather: "Météo",
+    weatherInfo: "Apprenez les noms des phénomènes météorologiques et les phrases associées.",
+    lessonFood: "Nourriture",
+    foodInfo: "Découvrez les noms des plats populaires, fruits, légumes et boissons.",
+    lessonTravel: "Voyages",
+    travelInfo: "Apprenez à parler de voyages : comment vous y rendre, où séjourner et que visiter.",
+    lessonAnimals: "Animaux",
+    animalsInfo: "Apprenez les noms des animaux et des phrases liées aux animaux domestiques et sauvages."
   },
   de: {
     headerTitle: "Russisch Lernen für Ausländer",
@@ -223,13 +255,22 @@ const translations = {
     usernamePlaceholder: "Benutzername",
     passwordPlaceholder: "Passwort",
     selectLanguage: "Sprache wählen:",
-    introInfo: "Unsere Website ist für Ausländer konzipiert, die Russisch lernen möchten. Hier finden Sie spannende Lektionen, Übungen und Audiomaterial, um die Sprache schnell zu beherrschen."
+    introInfo: "Unsere Website ist für Ausländer konzipiert, die Russisch lernen möchten. Hier finden Sie spannende Lektionen, Übungen und Audiomaterial, um die Sprache schnell zu beherrschen.",
+    lessonWeather: "Wetter",
+    weatherInfo: "Lerne die Namen von Wetterphänomenen und Sätzen, die mit dem Wetter zusammenhängen.",
+    lessonFood: "Essen",
+    foodInfo: "Erfahre die Namen von beliebten Gerichten, Früchten, Gemüse und Getränken.",
+    lessonTravel: "Reisen",
+    travelInfo: "Lerne, über Reisen zu sprechen: wie man hinkommt, wo man übernachten und was man besichtigen kann.",
+    lessonAnimals: "Tiere",
+    animalsInfo: "Lerne die Namen von Tieren und Sätze über Haustiere und Wildtiere."
   }
 };
 
 let currentLang = localStorage.getItem('language') || 'ru';
 
-// Функция обновления переводов
+// Функция обновления переводов – обновляет только текстовые элементы,
+// не затрагивая HTML-разметку с иконками, если она вынесена в отдельный тег.
 function updateTranslations() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -275,11 +316,11 @@ function initAudioPlayers() {
       const audioUrl = e.currentTarget.dataset.audio;
       playAudio(audioUrl);
       
-      // Определяем категорию
+      // Определяем категорию (получаем текст из заголовка, преобразуем в нижний регистр)
       const card = e.currentTarget.closest('.lesson-card');
       let category = card ? card.querySelector('h2').textContent.toLowerCase().replace(/\s/g, '_') : 'other';
       
-      // Создаем уникальный ID для элемента
+      // Создаем уникальный ID для элемента (используем текст кнопки или имя файла)
       const itemId = e.currentTarget.textContent.trim() || audioUrl.split('/').pop();
       
       if (!progressData[category]) progressData[category] = {};

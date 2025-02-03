@@ -14,7 +14,7 @@
   <header class="header">
     <div class="header-overlay"></div>
     <div class="header-content">
-      <!-- Заголовок без лишних вложенных элементов – переводится целиком -->
+      <!-- Заголовок -->
       <h1 data-i18n="headerTitle">Learn Russian for Foreigners</h1>
       <p data-i18n="headerSubtitle">Специально для тех, кто хочет быстро и легко освоить русский язык!</p>
       <!-- Дополнительный информационный блок -->
@@ -82,6 +82,7 @@
           <span data-i18n="lessonAlphabet">Алфавит</span>
         </h2>
         <div class="grid-container alphabet">
+          <!-- Кнопки для каждой буквы остаются без изменений -->
           <button class="letter" data-audio="audio/alphabet/а.mp3">А</button>
           <button class="letter" data-audio="audio/alphabet/б.mp3">Б</button>
           <button class="letter" data-audio="audio/alphabet/в.mp3">В</button>
@@ -324,6 +325,74 @@
           </div>
         </div>
       </div>
+      
+      <!-- Новые уроки -->
+      
+      <!-- Урок "Погода" -->
+      <div class="lesson-card">
+        <h2>
+          <i class="fas fa-cloud-sun"></i>
+          <span data-i18n="lessonWeather">Погода</span>
+        </h2>
+        <div class="content-container">
+          <p data-i18n="weatherInfo">
+            Изучите названия погодных явлений и фраз, связанных с погодой.
+          </p>
+          <!-- Здесь можно добавить кнопки или интерактивные элементы с озвучкой -->
+          <button class="audio-btn" data-audio="audio/weather/sunny.mp3">
+            <i class="fas fa-volume-up"></i> <span data-i18n="playBtn">Проиграть</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Урок "Еда" -->
+      <div class="lesson-card">
+        <h2>
+          <i class="fas fa-utensils"></i>
+          <span data-i18n="lessonFood">Еда</span>
+        </h2>
+        <div class="content-container">
+          <p data-i18n="foodInfo">
+            Узнайте названия популярных блюд, фруктов, овощей и напитков.
+          </p>
+          <button class="audio-btn" data-audio="audio/food/apple.mp3">
+            <i class="fas fa-volume-up"></i> <span data-i18n="playBtn">Проиграть</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Урок "Путешествия" -->
+      <div class="lesson-card">
+        <h2>
+          <i class="fas fa-plane"></i>
+          <span data-i18n="lessonTravel">Путешествия</span>
+        </h2>
+        <div class="content-container">
+          <p data-i18n="travelInfo">
+            Научитесь говорить о путешествиях: как добраться, где остановиться и что посетить.
+          </p>
+          <button class="audio-btn" data-audio="audio/travel/train.mp3">
+            <i class="fas fa-volume-up"></i> <span data-i18n="playBtn">Проиграть</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Урок "Животные" -->
+      <div class="lesson-card">
+        <h2>
+          <i class="fas fa-paw"></i>
+          <span data-i18n="lessonAnimals">Животные</span>
+        </h2>
+        <div class="content-container">
+          <p data-i18n="animalsInfo">
+            Изучите названия животных и фразы, связанные с домашними и дикими животными.
+          </p>
+          <button class="audio-btn" data-audio="audio/animals/dog.mp3">
+            <i class="fas fa-volume-up"></i> <span data-i18n="playBtn">Проиграть</span>
+          </button>
+        </div>
+      </div>
+      
     </section>
 
     <!-- Раздел упражнений -->
