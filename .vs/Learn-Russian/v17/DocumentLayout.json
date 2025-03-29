@@ -36,9 +36,22 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\tsist\\source\\repos\\Learn-Russian\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAALABAAAAAAAAAAAkwNABAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAFgDAAAAAAAAAAAkwLIDAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-02-02T00:09:48.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "script.js",
+              "DocumentMoniker": "C:\\Users\\tsist\\source\\repos\\Learn-Russian\\script.js",
+              "RelativeDocumentMoniker": "script.js",
+              "ToolTip": "C:\\Users\\tsist\\source\\repos\\Learn-Russian\\script.js",
+              "RelativeToolTip": "script.js",
+              "ViewState": "AgIAABQFAAAAAAAAAAAqwBwFAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T00:09:43.539Z",
               "EditorCaption": ""
             },
             {
@@ -49,22 +62,9 @@
               "RelativeDocumentMoniker": "styles.css",
               "ToolTip": "C:\\Users\\tsist\\source\\repos\\Learn-Russian\\styles.css",
               "RelativeToolTip": "styles.css",
-              "ViewState": "AgIAALUBAAAAAAAAAAAkwNQBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAALIBAAAAAAAAAAAkwNQBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-02-02T00:09:43.579Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "script.js",
-              "DocumentMoniker": "C:\\Users\\tsist\\source\\repos\\Learn-Russian\\script.js",
-              "RelativeDocumentMoniker": "script.js",
-              "ToolTip": "C:\\Users\\tsist\\source\\repos\\Learn-Russian\\script.js",
-              "RelativeToolTip": "script.js",
-              "ViewState": "AgIAAAACAAAAAAAAAAAAAAwAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-02-02T00:09:43.539Z",
-              "EditorCaption": ""
             }
           ]
         }

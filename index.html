@@ -1,465 +1,947 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="headerTitle">Изучайте русский язык для иностранцев</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Russian for Foreigners</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icon.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-overlay"></div>
-        <div class="header-content">
-            <h1 data-i18n="headerTitle">Изучайте русский язык для иностранцев</h1>
-            <p data-i18n="headerSubtitle">Создано для тех, кто хочет легко и быстро выучить русский!</p>
-            <div class="intro-info">
-                <p data-i18n="introInfo">
-                    Наш сайт помогает иностранцам изучать русский язык. Здесь есть интересные уроки, упражнения и аудио, чтобы вы быстро освоили язык.
-                </p>
-            </div>
-            <div id="account-section">
-                <button id="login-btn" class="account-btn" data-i18n="loginBtn">Войти</button>
-                <button id="register-btn" class="account-btn" data-i18n="registerBtn">Регистрация</button>
-            </div>
-            <div id="user-info" class="user-info" style="display:none;">
-                <span id="welcome-msg"></span>
-                <button id="logout-btn" class="account-btn" data-i18n="logoutBtn">Выйти</button>
-            </div>
-            <div class="language-selector">
-                <span class="lang-label" data-i18n="selectLanguage">Выберите язык:</span>
-                <div class="lang-buttons">
-                    <button class="lang-btn" data-lang="ru" title="Русский">
-                        <span class="flag-icon flag-icon-ru"></span>
-                        <span class="lang-text">Русский</span>
-                    </button>
-                    <button class="lang-btn" data-lang="en" title="English">
-                        <span class="flag-icon flag-icon-us"></span>
-                        <span class="lang-text">English</span>
-                    </button>
-                    <button class="lang-btn" data-lang="es" title="Español">
-                        <span class="flag-icon flag-icon-es"></span>
-                        <span class="lang-text">Español</span>
-                    </button>
-                    <button class="lang-btn" data-lang="fr" title="Français">
-                        <span class="flag-icon flag-icon-fr"></span>
-                        <span class="lang-text">Français</span>
-                    </button>
-                    <button class="lang-btn" data-lang="de" title="Deutsch">
-                        <span class="flag-icon flag-icon-de"></span>
-                        <span class="lang-text">Deutsch</span>
-                    </button>
-                </div>
-            </div>
-            <div class="score">
-                <i class="fas fa-coins"></i>
-                <span id="points">0</span> <span data-i18n="pointsText">баллов</span>
-            </div>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <h1 data-i18n="headerTitle">Learn Russian for Foreigners</h1>
+        <p data-i18n="headerSubtitle">Ваш путь к совершенному русскому языку</p>
+      </div>
+      <div class="header-actions">
+        <div class="lang-selector">
+          <span data-i18n="selectLanguage">Язык:</span>
+          <div class="lang-buttons">
+            <button class="lang-btn" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Russian Flag" class="flag-icon"> Русский</button>
+            <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English Flag" class="flag-icon"> English</button>
+            <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Spanish Flag" class="flag-icon"> Español</button>
+            <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="French Flag" class="flag-icon"> Français</button>
+            <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="German Flag" class="flag-icon"> Deutsch</button>
+          </div>
         </div>
-    </header>
-
-    <nav class="tabs">
-        <button class="tab-button active" data-tab="lessons" data-i18n="tabLessons">Уроки</button>
-        <button class="tab-button" data-tab="exercises" data-i18n="tabExercises">Упражнения</button>
-        <button class="tab-button" data-tab="progress" data-i18n="tabProgress">Прогресс</button>
-    </nav>
-
-    <main class="content">
-        <section id="lessons" class="tab-content active">
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-book-open"></i>
-                    <span data-i18n="lessonAlphabet">Алфавит</span>
-                </h2>
-                <div class="grid-container alphabet">
-                    <button class="letter" data-audio="audio/alphabet/а.mp3">А</button>
-                    <button class="letter" data-audio="audio/alphabet/б.mp3">Б</button>
-                    <button class="letter" data-audio="audio/alphabet/в.mp3">В</button>
-                    <button class="letter" data-audio="audio/alphabet/г.mp3">Г</button>
-                    <button class="letter" data-audio="audio/alphabet/д.mp3">Д</button>
-                    <button class="letter" data-audio="audio/alphabet/е.mp3">Е</button>
-                    <button class="letter" data-audio="audio/alphabet/ё.mp3">Ё</button>
-                    <button class="letter" data-audio="audio/alphabet/ж.mp3">Ж</button>
-                    <button class="letter" data-audio="audio/alphabet/з.mp3">З</button>
-                    <button class="letter" data-audio="audio/alphabet/и.mp3">И</button>
-                    <button class="letter" data-audio="audio/alphabet/й.mp3">Й</button>
-                    <button class="letter" data-audio="audio/alphabet/к.mp3">К</button>
-                    <button class="letter" data-audio="audio/alphabet/л.mp3">Л</button>
-                    <button class="letter" data-audio="audio/alphabet/м.mp3">М</button>
-                    <button class="letter" data-audio="audio/alphabet/н.mp3">Н</button>
-                    <button class="letter" data-audio="audio/alphabet/о.mp3">О</button>
-                    <button class="letter" data-audio="audio/alphabet/п.mp3">П</button>
-                    <button class="letter" data-audio="audio/alphabet/р.mp3">Р</button>
-                    <button class="letter" data-audio="audio/alphabet/с.mp3">С</button>
-                    <button class="letter" data-audio="audio/alphabet/т.mp3">Т</button>
-                    <button class="letter" data-audio="audio/alphabet/у.mp3">У</button>
-                    <button class="letter" data-audio="audio/alphabet/ф.mp3">Ф</button>
-                    <button class="letter" data-audio="audio/alphabet/х.mp3">Х</button>
-                    <button class="letter" data-audio="audio/alphabet/ц.mp3">Ц</button>
-                    <button class="letter" data-audio="audio/alphabet/ч.mp3">Ч</button>
-                    <button class="letter" data-audio="audio/alphabet/ш.mp3">Ш</button>
-                    <button class="letter" data-audio="audio/alphabet/щ.mp3">Щ</button>
-                    <button class="letter" data-audio="audio/alphabet/ъ.mp3">Ъ</button>
-                    <button class="letter" data-audio="audio/alphabet/ы.mp3">Ы</button>
-                    <button class="letter" data-audio="audio/alphabet/ь.mp3">Ь</button>
-                    <button class="letter" data-audio="audio/alphabet/э.mp3">Э</button>
-                    <button class="letter" data-audio="audio/alphabet/ю.mp3">Ю</button>
-                    <button class="letter" data-audio="audio/alphabet/я.mp3">Я</button>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-handshake"></i>
-                    <span data-i18n="lessonGreetings">Приветствия</span>
-                </h2>
-                <div class="phrases-container">
-                    <div class="phrase-item" data-audio="audio/greetings/здравствуйте.mp3">
-                        <span>Здравствуйте</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="phrase-item" data-audio="audio/greetings/привет.mp3">
-                        <span>Привет</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="phrase-item" data-audio="audio/greetings/доброе_утро.mp3">
-                        <span>Доброе утро</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="phrase-item" data-audio="audio/greetings/добрый_день.mp3">
-                        <span>Добрый день</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="phrase-item" data-audio="audio/greetings/добрый_вечер.mp3">
-                        <span>Добрый вечер</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="phrase-item" data-audio="audio/greetings/как_дела.mp3">
-                        <span>Как дела?</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="phrase-item" data-audio="audio/greetings/спасибо_хорошо.mp3">
-                        <span>Спасибо, хорошо</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="phrase-item" data-audio="audio/greetings/до_свидания.mp3">
-                        <span>До свидания</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-sort-numeric-up"></i>
-                    <span data-i18n="lessonNumbers">Цифры</span>
-                </h2>
-                <div class="grid-container numbers">
-                    <button class="number" data-audio="audio/numbers/1.mp3">1 - Один</button>
-                    <button class="number" data-audio="audio/numbers/2.mp3">2 - Два</button>
-                    <button class="number" data-audio="audio/numbers/3.mp3">3 - Три</button>
-                    <button class="number" data-audio="audio/numbers/4.mp3">4 - Четыре</button>
-                    <button class="number" data-audio="audio/numbers/5.mp3">5 - Пять</button>
-                    <button class="number" data-audio="audio/numbers/6.mp3">6 - Шесть</button>
-                    <button class="number" data-audio="audio/numbers/7.mp3">7 - Семь</button>
-                    <button class="number" data-audio="audio/numbers/8.mp3">8 - Восемь</button>
-                    <button class="number" data-audio="audio/numbers/9.mp3">9 - Девять</button>
-                    <button class="number" data-audio="audio/numbers/10.mp3">10 - Десять</button>
-                    <button class="number" data-audio="audio/numbers/11.mp3">11 - Одиннадцать</button>
-                    <button class="number" data-audio="audio/numbers/12.mp3">12 - Двенадцать</button>
-                    <button class="number" data-audio="audio/numbers/13.mp3">13 - Тринадцать</button>
-                    <button class="number" data-audio="audio/numbers/14.mp3">14 - Четырнадцать</button>
-                    <button class="number" data-audio="audio/numbers/15.mp3">15 - Пятнадцать</button>
-                    <button class="number" data-audio="audio/numbers/16.mp3">16 - Шестнадцать</button>
-                    <button class="number" data-audio="audio/numbers/17.mp3">17 - Семнадцать</button>
-                    <button class="number" data-audio="audio/numbers/18.mp3">18 - Восемнадцать</button>
-                    <button class="number" data-audio="audio/numbers/19.mp3">19 - Девятнадцать</button>
-                    <button class="number" data-audio="audio/numbers/20.mp3">20 - Двадцать</button>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-palette"></i>
-                    <span data-i18n="lessonColors">Цвета</span>
-                </h2>
-                <div class="colors-container">
-                    <div class="color-item" data-audio="audio/colors/красный.mp3">
-                        <div class="color-box" style="background: #FF0000"></div>
-                        <span>Красный</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/синий.mp3">
-                        <div class="color-box" style="background: #0000FF"></div>
-                        <span>Синий</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/зеленый.mp3">
-                        <div class="color-box" style="background: #00FF00"></div>
-                        <span>Зеленый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/желтый.mp3">
-                        <div class="color-box" style="background: #FFFF00"></div>
-                        <span>Желтый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/черный.mp3">
-                        <div class="color-box" style="background: #000000"></div>
-                        <span>Черный</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/белый.mp3">
-                        <div class="color-box" style="background: #FFFFFF"></div>
-                        <span>Белый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/оранжевый.mp3">
-                        <div class="color-box" style="background: #FFA500"></div>
-                        <span>Оранжевый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/фиолетовый.mp3">
-                        <div class="color-box" style="background: #800080"></div>
-                        <span>Фиолетовый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/розовый.mp3">
-                        <div class="color-box" style="background: #FFC0CB"></div>
-                        <span>Розовый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/серый.mp3">
-                        <div class="color-box" style="background: #808080"></div>
-                        <span>Серый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="color-item" data-audio="audio/colors/коричневый.mp3">
-                        <div class="color-box" style="background: #423021fd"></div>
-                        <span>Коричневый</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-users"></i>
-                    <span data-i18n="lessonFamily">Семья</span>
-                </h2>
-                <div class="family-container">
-                    <div class="family-item" data-audio="audio/family/мама.mp3">
-                        <i class="fas fa-female"></i>
-                        <span>Мама</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/папа.mp3">
-                        <i class="fas fa-male"></i>
-                        <span>Папа</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/брат.mp3">
-                        <i class="fas fa-child"></i>
-                        <span>Брат</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/сестра.mp3">
-                        <i class="fas fa-child"></i>
-                        <span>Сестра</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/дедушка.mp3">
-                        <i class="fas fa-blind"></i>
-                        <span>Дедушка</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/бабушка.mp3">
-                        <i class="fas fa-blind"></i>
-                        <span>Бабушка</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/дядя.mp3">
-                        <i class="fas fa-user"></i>
-                        <span>Дядя</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/тетя.mp3">
-                        <i class="fas fa-user"></i>
-                        <span>Тётя</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/сын.mp3">
-                        <i class="fas fa-baby"></i>
-                        <span>Сын</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/дочь.mp3">
-                        <i class="fas fa-baby"></i>
-                        <span>Дочь</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/внук.mp3">
-                        <i class="fas fa-child"></i>
-                        <span>Внук</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                    <div class="family-item" data-audio="audio/family/внучка.mp3">
-                        <i class="fas fa-child"></i>
-                        <span>Внучка</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-cloud-sun"></i>
-                    <span data-i18n="lessonWeather">Погода</span>
-                </h2>
-                <div class="content-container">
-                    <p data-i18n="weatherInfo">Изучите названия погодных явлений и фраз, связанных с погодой.</p>
-                    <div class="phrase-item" data-audio="audio/weather/sunny_today.mp3">
-                        <span data-i18n="weatherSunnyToday">Сегодня солнечно</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-utensils"></i>
-                    <span data-i18n="lessonFood">Еда</span>
-                </h2>
-                <div class="content-container">
-                    <p data-i18n="foodInfo">Узнайте названия популярных блюд, фруктов, овощей и напитков.</p>
-                    <div class="phrase-item" data-audio="audio/food/apple.mp3">
-                        <span data-i18n="foodApple">Яблоко</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-plane"></i>
-                    <span data-i18n="lessonTravel">Путешествия</span>
-                </h2>
-                <div class="content-container">
-                    <p data-i18n="travelInfo">Научитесь говорить о путешествиях: как добраться, где остановиться и что посетить.</p>
-                    <div class="phrase-item" data-audio="audio/travel/train.mp3">
-                        <span data-i18n="travelTrain">Поезд</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lesson-card">
-                <h2>
-                    <i class="fas fa-paw"></i>
-                    <span data-i18n="lessonAnimals">Животные</span>
-                </h2>
-                <div class="content-container">
-                    <p data-i18n="animalsInfo">Изучите названия животных и фразы, связанные с домашними и дикими животными.</p>
-                    <div class="phrase-item" data-audio="audio/animals/dog.mp3">
-                        <span data-i18n="animalsDog">Собака</span>
-                        <button class="audio-btn"><i class="fas fa-volume-up"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="exercises" class="tab-content">
-            <div class="exercise-card" data-type="alphabet" data-correct="ы">
-                <h3 data-i18n="exercise1Title">Упражнение 1: Что за буква?</h3>
-                <button class="play-btn" data-audio="audio/exercises/alphabet_ex1.mp3">
-                    <i class="fas fa-play"></i> <span data-i18n="playBtn">Проиграть</span>
-                </button>
-                <input type="text" class="answer-input" placeholder="Введите букву" data-i18n-placeholder="enterLetter">
-                <button class="check-btn" data-i18n="checkBtn">Проверить</button>
-                <p class="exercise-result"></p>
-            </div>
-
-            <div class="exercise-card" data-type="alphabet" data-correct="щ">
-                <h3 data-i18n="exercise2Title">Упражнение 2: Что за буква?</h3>
-                <button class="play-btn" data-audio="audio/exercises/alphabet_ex2.mp3">
-                    <i class="fas fa-play"></i> <span data-i18n="playBtn">Проиграть</span>
-                </button>
-                <input type="text" class="answer-input" placeholder="Введите букву" data-i18n-placeholder="enterLetter">
-                <button class="check-btn" data-i18n="checkBtn">Проверить</button>
-                <p class="exercise-result"></p>
-            </div>
-
-            <div class="exercise-card" data-type="greetings" data-correct="добрый вечер">
-                <h3 data-i18n="exercise3Title">Упражнение 3: Приветствия</h3>
-                <button class="play-btn" data-audio="audio/exercises/greetings_ex1.mp3">
-                    <i class="fas fa-play"></i> <span data-i18n="playBtn">Проиграть</span>
-                </button>
-                <input type="text" class="answer-input" placeholder="Введите фразу" data-i18n-placeholder="enterPhrase">
-                <button class="check-btn" data-i18n="checkBtn">Проверить</button>
-                <p class="exercise-result"></p>
-            </div>
-
-            <div class="exercise-card" data-type="greetings" data-correct="как дела?">
-                <h3 data-i18n="exercise4Title">Упражнение 4: Вопрос</h3>
-                <button class="play-btn" data-audio="audio/exercises/greetings_ex2.mp3">
-                    <i class="fas fa-play"></i> <span data-i18n="playBtn">Проиграть</span>
-                </button>
-                <input type="text" class="answer-input" placeholder="Введите ответ" data-i18n-placeholder="enterAnswer">
-                <button class="check-btn" data-i18n="checkBtn">Проверить</button>
-                <p class="exercise-result"></p>
-            </div>
-        </section>
-
-        <section id="progress" class="tab-content">
-            <div class="progress-wrapper">
-                <h3 data-i18n="progressHeader">Ваш прогресс:</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%"></div>
-                </div>
-                <span class="progress-percent">0%</span>
-            </div>
-
-            <div class="achievements-container">
-                <div class="achievement locked">
-                    <div class="achievement-icon">🥇</div>
-                    <div class="achievement-info">
-                        <h4 data-i18n="achievement1Name">Новичок</h4>
-                        <p data-i18n="achievement1Desc">Заработайте 50 баллов</p>
-                    </div>
-                </div>
-                <div class="achievement locked">
-                    <div class="achievement-icon">🔤</div>
-                    <div class="achievement-info">
-                        <h4 data-i18n="achievement2Name">Знаток алфавита</h4>
-                        <p data-i18n="achievement2Desc">Изучите все буквы</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" data-modal="login-modal">×</span>
-            <h2 data-i18n="loginTitle">Войти</h2>
-            <input type="text" id="login-username" placeholder="Логин" data-i18n-placeholder="usernamePlaceholder">
-            <input type="password" id="login-password" placeholder="Пароль" data-i18n-placeholder="passwordPlaceholder">
-            <button id="login-submit" data-i18n="loginSubmit">Войти</button>
+        <div class="points-display">
+          <i class="fas fa-star"></i>
+          <span id="points">0</span>
+          <span data-i18n="pointsText">баллов</span>
         </div>
+        <div id="account-section">
+          <button id="login-btn" data-i18n="loginBtn">Войти</button>
+          <button id="register-btn" data-i18n="registerBtn">Регистрация</button>
+        </div>
+        <div id="user-info" style="display: none;">
+          <span id="welcome-msg"></span>
+          <button id="logout-btn" data-i18n="logoutBtn">Выйти</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-button active" data-tab="lessons" data-i18n="tabLessons">Уроки</button>
+    <button class="tab-button" data-tab="exercises" data-i18n="tabExercises">Упражнения</button>
+    <button class="tab-button" data-tab="progress" data-i18n="tabProgress">Прогресс</button>
+    <button class="tab-button" data-tab="chatbot" data-i18n="tabChatbot">Чат-бот</button>
+  </nav>
+
+  <main>
+    <div id="lessons" class="tab-content active">
+      <div class="lesson-card">
+        <h2><i class="fas fa-font"></i> <span data-i18n="lessonAlphabet">Алфавит</span></h2>
+        <div class="grid-container alphabet">
+          <div class="letter" data-audio="audio/alphabet/а.mp3">А</div>
+          <div class="letter" data-audio="audio/alphabet/б.mp3">Б</div>
+          <div class="letter" data-audio="audio/alphabet/в.mp3">В</div>
+          <div class="letter" data-audio="audio/alphabet/г.mp3">Г</div>
+          <div class="letter" data-audio="audio/alphabet/д.mp3">Д</div>
+          <div class="letter" data-audio="audio/alphabet/е.mp3">Е</div>
+          <div class="letter" data-audio="audio/alphabet/ё.mp3">Ё</div>
+          <div class="letter" data-audio="audio/alphabet/ж.mp3">Ж</div>
+          <div class="letter" data-audio="audio/alphabet/з.mp3">З</div>
+          <div class="letter" data-audio="audio/alphabet/и.mp3">И</div>
+          <div class="letter" data-audio="audio/alphabet/й.mp3">Й</div>
+          <div class="letter" data-audio="audio/alphabet/к.mp3">К</div>
+          <div class="letter" data-audio="audio/alphabet/л.mp3">Л</div>
+          <div class="letter" data-audio="audio/alphabet/м.mp3">М</div>
+          <div class="letter" data-audio="audio/alphabet/н.mp3">Н</div>
+          <div class="letter" data-audio="audio/alphabet/о.mp3">О</div>
+          <div class="letter" data-audio="audio/alphabet/п.mp3">П</div>
+          <div class="letter" data-audio="audio/alphabet/р.mp3">Р</div>
+          <div class="letter" data-audio="audio/alphabet/с.mp3">С</div>
+          <div class="letter" data-audio="audio/alphabet/т.mp3">Т</div>
+          <div class="letter" data-audio="audio/alphabet/у.mp3">У</div>
+          <div class="letter" data-audio="audio/alphabet/ф.mp3">Ф</div>
+          <div class="letter" data-audio="audio/alphabet/х.mp3">Х</div>
+          <div class="letter" data-audio="audio/alphabet/ц.mp3">Ц</div>
+          <div class="letter" data-audio="audio/alphabet/ч.mp3">Ч</div>
+          <div class="letter" data-audio="audio/alphabet/ш.mp3">Ш</div>
+          <div class="letter" data-audio="audio/alphabet/щ.mp3">Щ</div>
+          <div class="letter" data-audio="audio/alphabet/ъ.mp3">Ъ</div>
+          <div class="letter" data-audio="audio/alphabet/ы.mp3">Ы</div>
+          <div class="letter" data-audio="audio/alphabet/ь.mp3">Ь</div>
+          <div class="letter" data-audio="audio/alphabet/э.mp3">Э</div>
+          <div class="letter" data-audio="audio/alphabet/ю.mp3">Ю</div>
+          <div class="letter" data-audio="audio/alphabet/я.mp3">Я</div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-handshake"></i> <span data-i18n="lessonGreetings">Приветствия</span></h2>
+        <div class="phrases-container">
+          <div class="phrase-item">
+            <span data-i18n="greetingsHelloFormal">Здравствуйте</span>
+            <button class="audio-btn" data-audio="audio/greetings/здравствуйте.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="phrase-item">
+            <span data-i18n="greetingsHello">Привет</span>
+            <button class="audio-btn" data-audio="audio/greetings/привет.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="phrase-item">
+            <span data-i18n="greetingsGoodMorning">Доброе утро</span>
+            <button class="audio-btn" data-audio="audio/greetings/доброе_утро.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="phrase-item">
+            <span data-i18n="greetingsGoodAfternoon">Добрый день</span>
+            <button class="audio-btn" data-audio="audio/greetings/добрый_день.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="phrase-item">
+            <span data-i18n="greetingsGoodEvening">Добрый вечер</span>
+            <button class="audio-btn" data-audio="audio/greetings/добрый_вечер.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="phrase-item">
+            <span data-i18n="greetingsHowAreYou">Как дела?</span>
+            <button class="audio-btn" data-audio="audio/greetings/как_дела.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="phrase-item">
+            <span data-i18n="greetingsThanksGood">Спасибо, хорошо</span>
+            <button class="audio-btn" data-audio="audio/greetings/спасибо_хорошо.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="phrase-item">
+            <span data-i18n="greetingsGoodbye">До свидания</span>
+            <button class="audio-btn" data-audio="audio/greetings/до_свидания.mp3"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-sort-numeric-up"></i> <span data-i18n="lessonNumbers">Цифры</span></h2>
+        <div class="grid-container numbers">
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/1.mp3">1-<span data-i18n="numbersOne">Один</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/1.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/2.mp3">2-<span data-i18n="numbersTwo">Два</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/2.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/3.mp3">3-<span data-i18n="numbersThree">Три</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/3.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/4.mp3">4-<span data-i18n="numbersFour">Четыре</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/4.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/5.mp3">5-<span data-i18n="numbersFive">Пять</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/5.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/6.mp3">6-<span data-i18n="numbersSix">Шесть</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/6.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/7.mp3">7-<span data-i18n="numbersSeven">Семь</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/7.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/8.mp3">8-<span data-i18n="numbersEight">Восемь</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/8.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/9.mp3">9-<span data-i18n="numbersNine">Девять</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/9.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/10.mp3">10-<span data-i18n="numbersTen">Десять</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/10.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/11.mp3">11-<span data-i18n="numbersEleven">Одиннадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/11.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/12.mp3">12-<span data-i18n="numbersTwelve">Двенадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/12.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/13.mp3">13-<span data-i18n="numbersThirteen">Тринадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/13.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/14.mp3">14-<span data-i18n="numbersFourteen">Четырнадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/14.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/15.mp3">15-<span data-i18n="numbersFifteen">Пятнадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/15.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/16.mp3">16-<span data-i18n="numbersSixteen">Шестнадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/16.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/17.mp3">17-<span data-i18n="numbersSeventeen">Семнадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/17.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/18.mp3">18-<span data-i18n="numbersEighteen">Восемнадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/18.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/19.mp3">19-<span data-i18n="numbersNineteen">Девятнадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/19.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="number">
+            <span class="number-label" data-audio="audio/numbers/20.mp3">20-<span data-i18n="numbersTwenty">Двадцать</span></span>
+            <button class="audio-btn" data-audio="audio/numbers/20.mp3"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+      </div>      
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-palette"></i> <span data-i18n="lessonColors">Цвета</span></h2>
+        <div class="colors-container">
+          <div class="color-item">
+            <div class="color-box" style="background: red;"></div>
+            <span data-i18n="colorsRed">Красный</span>
+            <button class="audio-btn" data-audio="audio/colors/красный.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: blue;"></div>
+            <span data-i18n="colorsBlue">Синий</span>
+            <button class="audio-btn" data-audio="audio/colors/синий.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: green;"></div>
+            <span data-i18n="colorsGreen">Зеленый</span>
+            <button class="audio-btn" data-audio="audio/colors/зеленый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: yellow;"></div>
+            <span data-i18n="colorsYellow">Желтый</span>
+            <button class="audio-btn" data-audio="audio/colors/желтый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: black;"></div>
+            <span data-i18n="colorsBlack">Черный</span>
+            <button class="audio-btn" data-audio="audio/colors/черный.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: white;"></div>
+            <span data-i18n="colorsWhite">Белый</span>
+            <button class="audio-btn" data-audio="audio/colors/белый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: orange;"></div>
+            <span data-i18n="colorsOrange">Оранжевый</span>
+            <button class="audio-btn" data-audio="audio/colors/оранжевый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: purple;"></div>
+            <span data-i18n="colorsPurple">Фиолетовый</span>
+            <button class="audio-btn" data-audio="audio/colors/фиолетовый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: pink;"></div>
+            <span data-i18n="colorsPink">Розовый</span>
+            <button class="audio-btn" data-audio="audio/colors/розовый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: gray;"></div>
+            <span data-i18n="colorsGray">Серый</span>
+            <button class="audio-btn" data-audio="audio/colors/серый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background: brown;"></div>
+            <span data-i18n="colorsBrown">Коричневый</span>
+            <button class="audio-btn" data-audio="audio/colors/коричневый.mp3"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-users"></i> <span data-i18n="lessonFamily">Семья</span></h2>
+        <div class="family-container">
+          <div class="family-item">
+            <span data-i18n="familyMom">Мама</span>
+            <button class="audio-btn" data-audio="audio/family/мама.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyDad">Папа</span>
+            <button class="audio-btn" data-audio="audio/family/папа.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyBrother">Брат</span>
+            <button class="audio-btn" data-audio="audio/family/брат.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familySister">Сестра</span>
+            <button class="audio-btn" data-audio="audio/family/сестра.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyGrandfather">Дедушка</span>
+            <button class="audio-btn" data-audio="audio/family/дедушка.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyGrandmother">Бабушка</span>
+            <button class="audio-btn" data-audio="audio/family/бабушка.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyUncle">Дядя</span>
+            <button class="audio-btn" data-audio="audio/family/дядя.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyAunt">Тётя</span>
+            <button class="audio-btn" data-audio="audio/family/тётя.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familySon">Сын</span>
+            <button class="audio-btn" data-audio="audio/family/сын.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyDaughter">Дочь</span>
+            <button class="audio-btn" data-audio="audio/family/дочь.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyGrandson">Внук</span>
+            <button class="audio-btn" data-audio="audio/family/внук.mp3"><i class="fas fa-play"></i></button>
+          </div>
+          <div class="family-item">
+            <span data-i18n="familyGranddaughter">Внучка</span>
+            <button class="audio-btn" data-audio="audio/family/внучка.mp3"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-cloud-sun"></i> <span data-i18n="lessonWeather">Погода</span></h2>
+        <div class="content-container">
+          <p data-i18n="weatherInfo">Изучите названия погодных явлений и фраз, связанных с погодой.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="weatherSunnyToday">Сегодня солнечно</span>
+              <button class="audio-btn" data-audio="audio/weather/сегодня_солнечно.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="weatherRainy">Идет дождь</span>
+              <button class="audio-btn" data-audio="audio/weather/идет_дождь.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="weatherSnowy">Идет снег</span>
+              <button class="audio-btn" data-audio="audio/weather/идет_снег.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="weatherWindy">Ветрено</span>
+              <button class="audio-btn" data-audio="audio/weather/ветрено.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="weatherCloudy">Облачно</span>
+              <button class="audio-btn" data-audio="audio/weather/облачно.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-utensils"></i> <span data-i18n="lessonFood">Еда</span></h2>
+        <div class="content-container">
+          <p data-i18n="foodInfo">Узнайте названия популярных блюд, фруктов, овощей и напитков.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="foodApple">Яблоко</span>
+              <button class="audio-btn" data-audio="audio/food/яблоко.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="foodBread">Хлеб</span>
+              <button class="audio-btn" data-audio="audio/food/хлеб.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="foodSoup">Суп</span>
+              <button class="audio-btn" data-audio="audio/food/суп.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="foodWater">Вода</span>
+              <button class="audio-btn" data-audio="audio/food/вода.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-plane"></i> <span data-i18n="lessonTravel">Путешествия</span></h2>
+        <div class="content-container">
+          <p data-i18n="travelInfo">Научитесь говорить о путешествиях: как добраться, где остановиться и что посетить.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="travelTrain">Поезд</span>
+              <button class="audio-btn" data-audio="audio/travel/поезд.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="travelHotel">Гостиница</span>
+              <button class="audio-btn" data-audio="audio/travel/гостиница.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="travelMuseum">Музей</span>
+              <button class="audio-btn" data-audio="audio/travel/музей.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-paw"></i> <span data-i18n="lessonAnimals">Животные</span></h2>
+        <div class="content-container">
+          <p data-i18n="animalsInfo">Изучите названия животных и фразы, связанные с домашними и дикими животными.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="animalsDog">Собака</span>
+              <button class="audio-btn" data-audio="audio/animals/собака.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="animalsCat">Кошка</span>
+              <button class="audio-btn" data-audio="audio/animals/кошка.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="animalsBird">Птица</span>
+              <button class="audio-btn" data-audio="audio/animals/птица.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-briefcase"></i> <span data-i18n="lessonProfessions">Профессии</span></h2>
+        <div class="content-container">
+          <p data-i18n="professionsInfo">Узнайте названия различных профессий и как о них говорить.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="professionsDoctor">Врач</span>
+              <button class="audio-btn" data-audio="audio/professions/врач.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="professionsTeacher">Учитель</span>
+              <button class="audio-btn" data-audio="audio/professions/учитель.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="professionsEngineer">Инженер</span>
+              <button class="audio-btn" data-audio="audio/professions/инженер.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-clock"></i> <span data-i18n="lessonTime">Время</span></h2>
+        <div class="content-container">
+          <p data-i18n="timeInfo">Научитесь говорить о времени: часы, дни недели, месяцы.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="timeHour">Час</span>
+              <button class="audio-btn" data-audio="audio/time/час.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="timeDay">День</span>
+              <button class="audio-btn" data-audio="audio/time/день.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="timeMonth">Месяц</span>
+              <button class="audio-btn" data-audio="audio/time/месяц.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-tshirt"></i> <span data-i18n="lessonClothing">Одежда</span></h2>
+        <div class="content-container">
+          <p data-i18n="clothingInfo">Изучите названия предметов одежды и аксессуаров.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="clothingShirt">Рубашка</span>
+              <button class="audio-btn" data-audio="audio/clothing/рубашка.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="clothingPants">Брюки</span>
+              <button class="audio-btn" data-audio="audio/clothing/брюки.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="clothingHat">Шляпа</span>
+              <button class="audio-btn" data-audio="audio/clothing/шляпа.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-home"></i> <span data-i18n="lessonHouse">Дом</span></h2>
+        <div class="content-container">
+          <p data-i18n="houseInfo">Узнайте названия комнат и предметов в доме.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="houseKitchen">Кухня</span>
+              <button class="audio-btn" data-audio="audio/house/кухня.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="houseBedroom">Спальня</span>
+              <button class="audio-btn" data-audio="audio/house/спальня.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="houseTable">Стол</span>
+              <button class="audio-btn" data-audio="audio/house/стол.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-bus"></i> <span data-i18n="lessonTransport">Транспорт</span></h2>
+        <div class="content-container">
+          <p data-i18n="transportInfo">Изучите названия видов транспорта и фразы для путешествий.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="transportCar">Машина</span>
+              <button class="audio-btn" data-audio="audio/transport/машина.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="transportBus">Автобус</span>
+              <button class="audio-btn" data-audio="audio/transport/автобус.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="transportPlane">Самолет</span>
+              <button class="audio-btn" data-audio="audio/transport/самолет.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-running"></i> <span data-i18n="lessonVerbs">Глаголы</span></h2>
+        <div class="content-container">
+          <p data-i18n="verbsInfo">Изучите основные глаголы для повседневного общения.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="verbsGo">Идти</span>
+              <button class="audio-btn" data-audio="audio/verbs/идти.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="verbsSpeak">Говорить</span>
+              <button class="audio-btn" data-audio="audio/verbs/говорить.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="verbsEat">Есть</span>
+              <button class="audio-btn" data-audio="audio/verbs/есть.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <h2><i class="fas fa-user"></i> <span data-i18n="lessonPronouns">Местоимения</span></h2>
+        <div class="content-container">
+          <p data-i18n="pronounsInfo">Изучите основные местоимения для общения.</p>
+          <div class="phrases-container">
+            <div class="phrase-item">
+              <span data-i18n="pronounsI">Я</span>
+              <button class="audio-btn" data-audio="audio/pronouns/я.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="pronounsYou">Ты</span>
+              <button class="audio-btn" data-audio="audio/pronouns/ты.mp3"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="phrase-item">
+              <span data-i18n="pronounsHe">Он</span>
+              <button class="audio-btn" data-audio="audio/pronouns/он.mp3"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="register-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" data-modal="register-modal">×</span>
-            <h2 data-i18n="registerTitle">Регистрация</h2>
-            <input type="text" id="register-username" placeholder="Логин" data-i18n-placeholder="usernamePlaceholder">
-            <input type="password" id="register-password" placeholder="Пароль" data-i18n-placeholder="passwordPlaceholder">
-            <button id="register-submit" data-i18n="registerSubmit">Зарегистрироваться</button>
+    <div id="exercises" class="tab-content">
+      <div class="exercise-card" data-type="audio" data-correct="а">
+        <h3 data-i18n="exerciseAlphabet1Title">Упражнение 1: Угадайте букву по звуку</h3>
+        <button class="play-btn" data-audio="audio/alphabet/а.mp3" data-i18n="playBtn">Проиграть</button>
+        <div class="options">
+          <button class="option-btn" data-value="а">А</button>
+          <button class="option-btn" data-value="б">Б</button>
+          <button class="option-btn" data-value="в">В</button>
         </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="моя мама дома">
+        <h3 data-i18n="exerciseAlphabet2Title">Упражнение 2: Составьте предложение из слов</h3>
+        <p>дома, моя, мама</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="доброе утро">
+        <h3 data-i18n="exerciseGreetings1Title">Упражнение 3: Выберите приветствие для утра</h3>
+        <div class="options">
+          <button class="option-btn" data-value="доброе утро" data-i18n="greetingsGoodMorning">Доброе утро</button>
+          <button class="option-btn" data-value="добрый вечер" data-i18n="greetingsGoodEvening">Добрый вечер</button>
+          <button class="option-btn" data-value="до свидания" data-i18n="greetingsGoodbye">До свидания</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="привет">
+        <h3 data-i18n="exerciseGreetings2Title">Упражнение 4: Напишите приветствие для друга</h3>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterWord">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="matching" data-correct="1:один,2:два,3:три">
+        <h3 data-i18n="exerciseNumbers1Title">Упражнение 5: Сопоставьте числа</h3>
+        <div class="matching-container">
+          <div class="left-column">
+            <div class="item" data-match="1">1</div>
+            <div class="item" data-match="2">2</div>
+            <div class="item" data-match="3">3</div>
+          </div>
+          <div class="right-column">
+            <div class="item" data-match="один" data-i18n="numbersOne">Один</div>
+            <div class="item" data-match="два" data-i18n="numbersTwo">Два</div>
+            <div class="item" data-match="три" data-i18n="numbersThree">Три</div>
+          </div>
+        </div>
+        <div class="match-display"></div>
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="пять">
+        <h3 data-i18n="exerciseNumbers2Title">Упражнение 6: Сколько яблок? Напишите число</h3>
+        <p>🍎🍎🍎🍎🍎</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterNumber">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="красный">
+        <h3 data-i18n="exerciseColors1Title">Упражнение 7: Какой это цвет?</h3>
+        <div class="color-box" style="background: red;"></div>
+        <div class="options">
+          <button class="option-btn" data-value="красный" data-i18n="colorsRed">Красный</button>
+          <button class="option-btn" data-value="синий" data-i18n="colorsBlue">Синий</button>
+          <button class="option-btn" data-value="зеленый" data-i18n="colorsGreen">Зеленый</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="желтый">
+        <h3 data-i18n="exerciseColors2Title">Упражнение 8: Напишите цвет солнца</h3>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterWord">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="мама">
+        <h3 data-i18n="exerciseFamily1Title">Упражнение 9: Кто это?</h3>
+        <p>👩</p>
+        <div class="options">
+          <button class="option-btn" data-value="мама" data-i18n="familyMom">Мама</button>
+          <button class="option-btn" data-value="папа" data-i18n="familyDad">Папа</button>
+          <button class="option-btn" data-value="брат" data-i18n="familyBrother">Брат</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="моя мама готовит ужин сегодня">
+        <h3 data-i18n="exerciseFamily2Title">Упражнение 10: Составьте предложение</h3>
+        <p>мама, ужин, моя, сегодня, готовит</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="дождливо">
+        <h3 data-i18n="exerciseWeather1Title">Упражнение 11: Опишите погоду</h3>
+        <p>☔</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterWeather">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="солнечно">
+        <h3 data-i18n="exerciseWeather2Title">Упражнение 12: Перескажите прогноз погоды</h3>
+        <p>☀️</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterWeather">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="translation" data-correct="собака">
+        <h3 data-i18n="exerciseFood1Title">Упражнение 13: Собака или сабака?</h3>
+        <p>🐶</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterTranslation">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="я ем суп с хлебом">
+        <h3 data-i18n="exerciseFood2Title">Упражнение 14: Составьте предложение</h3>
+        <p>суп, я, с, ем, хлебом</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="поезд">
+        <h3 data-i18n="exerciseTravel1Title">Упражнение 15: Выберите транспорт для путешествия</h3>
+        <p>🚂</p>
+        <div class="options">
+          <button class="option-btn" data-value="поезд" data-i18n="travelTrain">Поезд</button>
+          <button class="option-btn" data-value="машина" data-i18n="transportCar">Машина</button>
+          <button class="option-btn" data-value="самолет" data-i18n="transportPlane">Самолет</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="в отеле">
+        <h3 data-i18n="exerciseTravel2Title">Упражнение 16: Напишите, где вы остановитесь</h3>
+        <p>🏨⭐🛏️</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterWord">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="audio" data-correct="кошка">
+        <h3 data-i18n="exerciseAnimals1Title">Упражнение 17: Угадайте животное по звуку</h3>
+        <button class="play-btn" data-audio="audio/animals/кошка.mp3" data-i18n="playBtn">Проиграть</button>
+        <div class="options">
+          <button class="option-btn" data-value="собака" data-i18n="animalsDog">Собака</button>
+          <button class="option-btn" data-value="кошка" data-i18n="animalsCat">Кошка</button>
+          <button class="option-btn" data-value="птица" data-i18n="animalsBird">Птица</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="моя кошка спит на диване">
+        <h3 data-i18n="exerciseAnimals2Title">Упражнение 18: Составьте предложение</h3>
+        <p>спит, на, моя, диване, кошка</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="инженер">
+        <h3 data-i18n="exerciseProfessions1Title">Упражнение 19: Кто это?</h3>
+        <p>👷</p>
+        <div class="options">
+          <button class="option-btn" data-value="врач" data-i18n="professionsDoctor">Врач</button>
+          <button class="option-btn" data-value="учитель" data-i18n="professionsTeacher">Учитель</button>
+          <button class="option-btn" data-value="инженер" data-i18n="professionsEngineer">Инженер</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="врач">
+        <h3 data-i18n="exerciseProfessions2Title">Упражнение 20: Скажите, кем работает человек</h3>
+        <p>🩺</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterProfession">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="двадцать четыре">
+        <h3 data-i18n="exerciseTime1Title">Упражнение 21: Напишите словами,сколько часов в сутках</h3>
+        <p>🕒</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterTime">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="день">
+        <h3 data-i18n="exerciseTime2Title">Упражнение 22: Выберите правильное слово</h3>
+        <p>📅</p>
+        <div class="options">
+          <button class="option-btn" data-value="час" data-i18n="timeHour">Час</button>
+          <button class="option-btn" data-value="день" data-i18n="timeDay">День</button>
+          <button class="option-btn" data-value="месяц" data-i18n="timeMonth">Месяц</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="шляпа">
+        <h3 data-i18n="exerciseClothing1Title">Упражнение 23: Назови одежду</h3>
+        <p>🎩</p>
+        <div class="options">
+          <button class="option-btn" data-value="рубашка" data-i18n="clothingShirt">Рубашка</button>
+          <button class="option-btn" data-value="брюки" data-i18n="clothingPants">Брюки</button>
+          <button class="option-btn" data-value="шляпа" data-i18n="clothingHat">Шляпа</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="я ношу шляпу на улице">
+        <h3 data-i18n="exerciseClothing2Title">Упражнение 24: Составьте предложение</h3>
+        <p>на, ношу, улице, я, шляпу</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="кухня">
+        <h3 data-i18n="exerciseHouse1Title">Упражнение 25: Где это находится?</h3>
+        <p>🍳</p>
+        <div class="options">
+          <button class="option-btn" data-value="кухня" data-i18n="houseKitchen">Кухня</button>
+          <button class="option-btn" data-value="спальня" data-i18n="houseBedroom">Спальня</button>
+          <button class="option-btn" data-value="стол" data-i18n="houseTable">Стол</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="тарелка">
+        <h3 data-i18n="exerciseHouse2Title">Упражнение 26: Напишите, что есть на кухне</h3>
+        <p>🍽️</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterWord">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="автобус">
+        <h3 data-i18n="exerciseTransport1Title">Упражнение 27: Выберите транспорт</h3>
+        <p>🚌</p>
+        <div class="options">
+          <button class="option-btn" data-value="машина" data-i18n="transportCar">Машина</button>
+          <button class="option-btn" data-value="автобус" data-i18n="transportBus">Автобус</button>
+          <button class="option-btn" data-value="самолет" data-i18n="transportPlane">Самолет</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="я еду на автобусе в город">
+        <h3 data-i18n="exerciseTransport2Title">Упражнение 28: Составьте предложение</h3>
+        <p>в, на, еду, я, автобусе, город</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="multiple-choice" data-correct="идти">
+        <h3 data-i18n="exerciseVerbs1Title">Упражнение 29: Выберите глагол</h3>
+        <p>🚶</p>
+        <div class="options">
+          <button class="option-btn" data-value="идти" data-i18n="verbsGo">Идти</button>
+          <button class="option-btn" data-value="говорить" data-i18n="verbsSpeak">Говорить</button>
+          <button class="option-btn" data-value="есть" data-i18n="verbsEat">Есть</button>
+        </div>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="я говорю по-русски с другом">
+        <h3 data-i18n="exerciseVerbs2Title">Упражнение 30: Составьте предложение</h3>
+        <p>с, по-русски, говорю, я, другом</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="input" data-correct="она">
+        <h3 data-i18n="exercisePronouns1Title">Упражнение 31: Замените слово местоимением</h3>
+        <p>Анна → ___</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterWord">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
+
+      <div class="exercise-card" data-type="compose" data-correct="ты идешь домой с братом">
+        <h3 data-i18n="exercisePronouns2Title">Упражнение 32: Составьте предложение</h3>
+        <p>с, домой, ты, братом, идешь</p>
+        <input type="text" class="answer-input" data-i18n-placeholder="enterSentence">
+        <button class="check-btn" data-i18n="checkBtn">Проверить</button>
+        <div class="exercise-result"></div>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="progress" class="tab-content">
+      <h2 data-i18n="progressTitle">Ваш прогресс</h2>
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%;"></div>
+        </div>
+        <span class="progress-percent">0%</span>
+      </div>
+      <div class="achievements-container"></div>
+    </div>
+
+    <div id="chatbot" class="tab-content">
+      <div class="chat-container">
+        <h2 data-i18n="chatbotTitle">Чат-бот для практики</h2>
+        <div id="chat-messages"></div>
+        <div class="chat-input-container">
+          <input type="text" id="chat-input" data-i18n-placeholder="chatPlaceholder">
+          <button id="chat-send" data-i18n="chatSend">Отправить</button>
+          <button id="chat-clear" data-i18n="chatClear">Очистить</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 data-i18n="footerAbout">О нас</h3>
+        <p data-i18n="footerAboutText">Мы помогаем иностранцам изучать русский язык с помощью интерактивных уроков и упражнений.</p>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footerContact">Контакты</h3>
+        <p data-i18n="footerPhone">Телефон: +7 (123) 456-78-90</p>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footerFollow">Следите за нами</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" data-modal="login-modal">&times;</span>
+      <h2 data-i18n="loginTitle">Вход</h2>
+      <input type="text" id="login-username" data-i18n-placeholder="usernamePlaceholder">
+      <input type="password" id="login-password" data-i18n-placeholder="passwordPlaceholder">
+      <button id="login-submit" data-i18n="loginBtn">Войти</button>
+    </div>
+  </div>
+
+  <div id="register-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" data-modal="register-modal">&times;</span>
+      <h2 data-i18n="registerTitle">Регистрация</h2>
+      <input type="text" id="register-username" data-i18n-placeholder="usernamePlaceholder">
+      <input type="password" id="register-password" data-i18n-placeholder="passwordPlaceholder">
+      <button id="register-submit" data-i18n="registerBtn">Регистрация</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
